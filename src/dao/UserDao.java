@@ -32,5 +32,12 @@ public class UserDao extends BaseDao {
         query.setParameter("name", name);
         return query.uniqueResult();
     }
+    public User findUserByFamilyName(String familyName){
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        Query<User> query=session.createQuery("from User e where e.familyName=:familyName",User.class);
+        query.setParameter("familyName",familyName);
+        return query.getSingleResult();
+    }
 
 }
