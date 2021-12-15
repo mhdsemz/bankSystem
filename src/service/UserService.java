@@ -21,7 +21,20 @@ public class UserService {
     public void saveUser(User user) {
         userDao.save(user);
     }
-    public void updateUser(User user){
+
+    public void updateUser(User user) {
         userDao.update(user);
+    }
+
+    public void updateUserName(User user, String newName) {
+        userDao.UpdateName(user.getId(), newName);
+    }
+
+    public void updateUserFamilyName(User user, String newFamilyName) {
+        userDao.UpdateName(user.getId(), newFamilyName);
+    }
+
+    public void updateUserNationalCode(User user, String newNationalCode) {
+        userDao.UpdateName(user.getId(), newNationalCode);
     }
 }

@@ -23,6 +23,16 @@ public class User {
     private Date lastUpdate;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Account> accountList=new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "user")
+    private List<Update> updateList=new ArrayList<>();
+
+    public List<Update> getUpdateList() {
+        return updateList;
+    }
+
+    public void setUpdateList(List<Update> updateList) {
+        this.updateList = updateList;
+    }
 
     public int getId() {
         return id;
