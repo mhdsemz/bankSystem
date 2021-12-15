@@ -3,6 +3,7 @@ package dao;
 import models.Account;
 import models.User;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
 
@@ -48,5 +49,36 @@ public class UserDao extends BaseDao {
         query.setParameter("nationalCode", nationalCode);
         return query.uniqueResult();
     }
+
+    public void UpdateName(int id, String newName) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.load(User.class, id);
+        user.setName(newName);
+        session.update(user);
+        transaction.commit();
+        session.close();
+    }
+
+    public void updateFamilyName(int id, String NewFamilyName) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.load(User.class, id);
+        user.setFamilyName(NewFamilyName);
+        session.update(user);
+        transaction.commit();
+        session.close();
+    }
+
+    public void updateNationalCode(int id, String newNationalCode) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        User user = session.load(User.class, id);
+        user.setNationalCode(newNationalCode);
+        session.update(user);
+        transaction.commit();
+        session.close();
+    }
+
 
 }
