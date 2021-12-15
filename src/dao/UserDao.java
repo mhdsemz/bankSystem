@@ -32,18 +32,20 @@ public class UserDao extends BaseDao {
         query.setParameter("name", name);
         return query.uniqueResult();
     }
-    public User findUserByFamilyName(String familyName){
+
+    public User findUserByFamilyName(String familyName) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Query<User> query=session.createQuery("from User e where e.familyName=:familyName",User.class);
-        query.setParameter("familyName",familyName);
+        Query<User> query = session.createQuery("from User e where e.familyName=:familyName", User.class);
+        query.setParameter("familyName", familyName);
         return query.getSingleResult();
     }
-    public User findByNationalCode(String nationalCode){
+
+    public User findByNationalCode(String nationalCode) {
         Session session = sessionFactory.openSession();
         Transaction transaction = session.beginTransaction();
-        Query<User> query=session.createQuery("from User e where e.nationalCode=:nationalCode",User.class);
-        query.setParameter("nationalCode",nationalCode);
+        Query<User> query = session.createQuery("from User e where e.nationalCode=:nationalCode", User.class);
+        query.setParameter("nationalCode", nationalCode);
         return query.uniqueResult();
     }
 
