@@ -1,11 +1,14 @@
 package dao;
 
 import models.Account;
+import models.Update;
 import models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
+
+import java.util.List;
 
 public class UserDao extends BaseDao {
 
@@ -78,6 +81,14 @@ public class UserDao extends BaseDao {
         session.update(user);
         transaction.commit();
         session.close();
+    }
+
+    public List<Update> getUpdateList(int id) {
+        Session session = sessionFactory.openSession();
+        session.beginTransaction();
+        Query<Update> query = session.createQuery("from Update  e where e.user.id=:id");
+        query.setParameter("id", id);
+        return query.list();
     }
 
 
