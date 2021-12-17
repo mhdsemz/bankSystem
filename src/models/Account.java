@@ -20,7 +20,6 @@ public class Account {
     private double balanceAccount;
     @Column(length = 4)
     private String ccv2;
-    private Date expirationDate;
     @ManyToOne(cascade = CascadeType.ALL)
     private User user;
     @OneToMany(mappedBy = "account", fetch = FetchType.EAGER)
@@ -82,13 +81,7 @@ public class Account {
         this.ccv2 = ccv2;
     }
 
-    public Date getExpirationDate() {
-        return expirationDate;
-    }
 
-    public void setExpirationDate(Date expirationDate) {
-        this.expirationDate = expirationDate;
-    }
 
     public User getUser() {
         return user;
@@ -116,7 +109,6 @@ public class Account {
                 ", accountType=" + accountType +
                 ", balanceAccount=" + balanceAccount +
                 ", ccv2='" + ccv2 + '\'' +
-                ", expirationDate=" + expirationDate +
                 ", user=" + user +
                 ", transactions=" + transactions +
                 '}';

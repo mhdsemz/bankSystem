@@ -4,7 +4,7 @@
         "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-<!--        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
+        <!--        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>-->
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.url">jdbc:mysql://localhost:3306/bank_system</property>
         <property name="connection.username">root</property>
@@ -21,6 +21,12 @@
          <mapping resource="hibernating/teacher.hbm.xml"/>-->
         <mapping class="models.Account"/>
         <mapping class="models.User"/>
+        <mapping class="models.AccountBuilder"/>
+        <mapping class="models.UserBuilder"/>
+        <mapping class="models.Update"/>
+        <mapping class="models.Transaction"/>
+        <mapping class="models.enums.TransactionType"/>
+        <mapping class="models.enums.AccountType"/>
         <mapping class="models.enums.UserType"/>
     </session-factory>
 </hibernate-configuration>

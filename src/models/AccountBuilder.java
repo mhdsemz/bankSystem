@@ -32,17 +32,14 @@ public class AccountBuilder {
         return this;
     }
 
-    public AccountBuilder withUser(double balance) {
+    public AccountBuilder withSetUserBalance(double balance) {
         account.setBalanceAccount(balance);
         return this;
     }
 
-    public AccountBuilder withExpirationDate(Date date) {
-        account.setExpirationDate(date);
-        return this;
-    }
 
-    public AccountBuilder withUser(User user) {
+
+    public AccountBuilder withSetUser(User user) {
         account.setUser(user);
         return this;
     }

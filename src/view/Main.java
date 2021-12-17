@@ -19,6 +19,7 @@ public class Main {
 
         System.out.println("****WELCOME**** \n +" +
                 "please enter what do you wanna do : ");
+        showMenu();
 
     }
 
@@ -48,16 +49,14 @@ public class Main {
     }
 
     private static void creatAccount() {
-        System.out.println("please enter your information to make tour account");
-        getNewUserBankInformation();
+        System.out.println("please enter your information to make your account");
+        User newUserBankInformation = getNewUserBankInformation();
         System.out.println("please enter how much you wanna add to your balance");
         Double balance = scanner.nextDouble();
         Account account = AccountBuilder.getBuilder().withAccountNumber(getRandomAccountNumber())
                 .withCvv2(getCvv2RandomNumber()).withCartNumber(getCartNumberRandomNumber())
                 .withOpeningDate(new Date())
-                .withUser( double).
-
-
+                .withSetUser(getNewUserBankInformation()).withSetUserBalance(balance).withSetUser(newUserBankInformation).build();
     }
 
     private static User getNewUserBankInformation() {
