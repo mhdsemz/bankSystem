@@ -82,7 +82,6 @@ public class Account {
     }
 
 
-
     public User getUser() {
         return user;
     }
@@ -113,4 +112,38 @@ public class Account {
                 ", transactions=" + transactions +
                 '}';
     }
+
+    public double withdrawnTransaction(String cartNumber, double amount) {
+        if (getBalanceAccount() >= amount) {
+            System.out.println(getUser().getFamilyName() + " withdrawn "
+                    + amount);
+            balanceAccount = balanceAccount - amount;
+            System.out.println("Balance after withdrawal: "
+                    + balanceAccount);
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println(
+                    "sorry!! you can not withdrawn ");
+        }
+        return balanceAccount;
+    }
+
+    public Double depositTransaction(String cartNumber, double amount) {
+        System.out.println(getUser().getFamilyName() + " deposit "
+                + amount);
+        balanceAccount = balanceAccount + amount;
+        System.out.println("Balance after deposit: "
+                + balanceAccount);
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        return balanceAccount;
+    }
+
 }

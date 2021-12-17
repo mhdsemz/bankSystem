@@ -1,8 +1,7 @@
 package models;
 
-import models.enums.TransactionType;
-
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 public class Transaction {
@@ -10,9 +9,9 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(name = "Transaction-type")
-    @Enumerated(EnumType.STRING)
-    private TransactionType transactionType;
     private double amount;
+    //actually this amount is a result of transaction;
+    private Date date;
     @ManyToOne
     private Account account;
 
@@ -20,16 +19,16 @@ public class Transaction {
         return id;
     }
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
     public void setId(int id) {
         this.id = id;
-    }
-
-    public TransactionType getTransactionType() {
-        return transactionType;
-    }
-
-    public void setTransactionType(TransactionType transactionType) {
-        this.transactionType = transactionType;
     }
 
     public double getAmount() {
@@ -47,4 +46,6 @@ public class Transaction {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+
 }
