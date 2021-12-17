@@ -3,6 +3,7 @@ package view;
 import models.Account;
 import models.AccountBuilder;
 import models.User;
+import models.UserBuilder;
 import service.UserService;
 
 import java.util.Date;
@@ -39,6 +40,7 @@ public class Main {
                     break;
                 case 2:
                     updateInformation();
+                    break;
             }
 
         }
@@ -58,14 +60,15 @@ public class Main {
 
     }
 
-    private static void getNewUserBankInformation() {
+    private static User getNewUserBankInformation() {
         System.out.print(" name: ");
         String fName = scanner.nextLine();
         System.out.print("family name: ");
         String lName = scanner.nextLine();
         System.out.print("national code: ");
         String nationalCode = scanner.nextLine();
-
+        User user = UserBuilder.getBuilder().withFirstName(fName).withLastName(lName).withCreationDate(new Date()).withNationalCode(nationalCode).build();
+        return user;
     }
 
     private static String getCartNumberRandomNumber() {
